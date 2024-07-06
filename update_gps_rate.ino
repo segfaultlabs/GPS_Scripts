@@ -1,3 +1,10 @@
+
+
+NOT WORKING USE pygpsclient instead.
+
+
+
+
 #include <HardwareSerial.h>
 
 HardwareSerial GPS(1);

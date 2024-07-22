@@ -4,7 +4,7 @@ This guide will help you configure your u-blox GNSS receiver to work perfectly w
 
 ## What You Need
 
-- u-blox GNSS receiver
+- u-blox GNSS receiver, Do not bother with M-6 units, M-8 is also out of date, a M-10 module is better and roughly 25,000W, I am still testing using multi GNSS
 - u-center software from u-blox
 - RaceChrono Pro app
 
@@ -51,17 +51,24 @@ First, download and install the u-center software from the [u-blox website](http
 
 1. In the Configuration View panel, go to `MSG (Messages)`.
 2. Turn off these sentences by setting their rates to `0` for all interfaces:
-   - `NMEA-GLL`
-   - `NMEA-GSA`
-   - `NMEA-GSV`
-   - `NMEA-TXT`
+   - `NMEA-GLL` (Geographic Position - Latitude/Longitude)
+   - `NMEA-GSA` (GNSS DOP and Active Satellites)
+   - `NMEA-GSV` (GNSS Satellites in View)
+   - `NMEA-TXT` (Text Transmission)
+   - `NMEA-GPVLW` (Distance Traveled through the Water)
+   - `NMEA-GPZDA` (Date & Time)
+   - `NMEA-GPGBS` (GNSS Satellite Fault Detection)
+   - `NMEA-GPDTM` (Datum Reference)
+   - `NMEA-GNS` (GNSS Fix Data)
+   - `UBX-PUBX` (u-blox Proprietary Messages)
 3. Make sure these essential ones are on:
-   - `NMEA-GGA`
-   - `NMEA-RMC`
-   - `NMEA-VTG`
+   - `NMEA-GGA` (Global Positioning System Fix Data)
+   - `NMEA-RMC` (Recommended Minimum Navigation Information)
+   - `NMEA-VTG` (Course Over Ground and Ground Speed)
+   - `NMEA-GST` (GPS Pseudorange Noise Statistics)
 4. Click `Send` to apply each setting.
 
-### 8. Save  Settings
+### 8. Save Your Settings
 
 1. In the Configuration View panel, select `CFG (Configuration)`.
 2. Choose `Save current configuration`.
@@ -70,7 +77,7 @@ First, download and install the u-center software from the [u-blox website](http
 ### 9. Double-Check Everything
 
 1. In u-center, open the `Text Console` window by going to `View > Text Console`.
-2. Check the NMEA data output to make sure you only see the enabled sentences (GGA, RMC, VTG).
+2. Check the NMEA data output to make sure you only see the enabled sentences (GGA, RMC, VTG, GST).
 
 ## That's It!
 

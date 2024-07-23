@@ -4,7 +4,7 @@ This guide will help you configure your u-blox GNSS receiver to work perfectly w
 
 ## What You Need
 
-- u-blox GNSS receiver, Do not bother with M-6 units, M-8 is also out of date, a M-10 module is better and roughly 25,000W, I am still testing using multi GNSS
+- u-blox GNSS receiver
 - u-center software from u-blox
 - RaceChrono Pro app
 
@@ -52,21 +52,24 @@ First, download and install the u-center software from the [u-blox website](http
 1. In the Configuration View panel, go to `MSG (Messages)`.
 2. Turn off these sentences by setting their rates to `0` for all interfaces:
    - `NMEA-GLL` (Geographic Position - Latitude/Longitude)
-   - `NMEA-GSA` (GNSS DOP and Active Satellites)
-   - `NMEA-GSV` (GNSS Satellites in View)
    - `NMEA-TXT` (Text Transmission)
    - `NMEA-GPVLW` (Distance Traveled through the Water)
    - `NMEA-GPZDA` (Date & Time)
    - `NMEA-GPGBS` (GNSS Satellite Fault Detection)
    - `NMEA-GPDTM` (Datum Reference)
    - `NMEA-GNS` (GNSS Fix Data)
+   - `NMEA-GRS` (GNSS Range Residuals)
+   - `NMEA-GLGSV` (GLONASS Satellites in View)
+   - `NMEA-GQGSV` (QZSS Satellites in View)
+   - `NMEA-GST` (GPS Pseudorange Noise Statistics)
    - `UBX-PUBX` (u-blox Proprietary Messages)
 3. Make sure these essential ones are on:
    - `NMEA-GGA` (Global Positioning System Fix Data)
    - `NMEA-RMC` (Recommended Minimum Navigation Information)
    - `NMEA-VTG` (Course Over Ground and Ground Speed)
-   - `NMEA-GST` (GPS Pseudorange Noise Statistics)
-4. Click `Send` to apply each setting.
+   - `NMEA-GSV` (GNSS Satellites in View)
+4. **Optional**: Enable `NMEA-GSA` (GNSS DOP and Active Satellites) for additional data in RaceChrono Pro.
+5. Click `Send` to apply each setting.
 
 ### 8. Save Your Settings
 
@@ -77,10 +80,31 @@ First, download and install the u-center software from the [u-blox website](http
 ### 9. Double-Check Everything
 
 1. In u-center, open the `Text Console` window by going to `View > Text Console`.
-2. Check the NMEA data output to make sure you only see the enabled sentences (GGA, RMC, VTG, GST).
+2. Check the NMEA data output to make sure you only see the enabled sentences (GGA, RMC, VTG, GSV, optionally GSA).
 
-## That's It!
+## Summary
 
 Your u-blox GNSS receiver should now be all set up for RaceChrono Pro, giving you fast and accurate data updates.
+
+### Important Note
+
+Consider buying an M10 GPS receiver as they are roughly 25,000₩. The M10 offers several improvements over the M8, including better sensitivity, faster acquisition times, and lower power consumption.
+
+### M8 vs M10 Summary
+
+- **M8**:
+  - Older generation
+  - Decent performance for general use
+  - Lower cost
+
+- **M10**:
+  - Newer generation
+  - Improved sensitivity and acquisition times
+  - Lower power consumption
+  - Slightly higher cost
+
+### Ongoing Experiments
+
+I'm currently experimenting with using more than just GPS, such as integrating GLONASS. However, currently using GPS only is best due to what seems to be a bandwidth issue when using more than one GNSS constellation. More updates will follow as experiments progress.
 
 For more details, check out the [u-blox documentation](https://www.u-blox.com/en/docs).

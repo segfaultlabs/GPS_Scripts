@@ -4,8 +4,9 @@ This guide will help you configure your u-blox GNSS receiver to work perfectly w
 
 ## What You Need
 
-- u-blox GNSS receiver
-- u-center software from u-blox
+- u-blox GNSS receiver ideally m10 an m8 will do
+- UART to usb connector 
+- u-center software from u-blox, this is windows only, "pygpsclient" on osx or linux can do SOME of this but i have not tested 
 - RaceChrono Pro app
 
 ## Let's Get Started
